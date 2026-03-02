@@ -1,1 +1,1 @@
-This is the source of the contents
+Here, the source of the filtration process of the fake news takes place in the main pipeline through the src folder.
