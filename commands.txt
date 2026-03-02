@@ -1,0 +1,20 @@
+pip install -r requirements.txt
+uvicorn src.app:app --reload --host 127.0.0.1 --port 8000 
+py -3.11 src/train.py --true_csv True.csv --fake_csv Fake.csv --output_dir models/research_fast --split_method time --run_bert --bert_use_gpu --bert_epochs 1 --bert_max_length 128 --sample_size 12000 --word_max_features 80000 --char_max_features 60000
+py -3.11 src/evaluate.py --artifact_path models/research_fast/final_model.joblib --true_csv True.csv --fake_csv Fake.csv --output_dir models/research_fast/eval
+py -3.11 src/predict.py --model_path models/research_fast/final_model.joblib --text "Enter your text."
+
+
+
+#For fast run 
+# 1) Fast sanity run (keep BERT, GPU on, no cross-domain/ablation)
+py -3.11 src/train.py --true_csv True.csv --fake_csv Fake.csv --output_dir models/research_fast --split_method source --run_bert --bert_use_gpu --bert_epochs 1 --bert_max_length 128 --sample_size 12000 --word_max_features 80000 --char_max_features 60000
+
+# 2) Evaluate fast model
+py -3.11 src/evaluate.py --artifact_path models/research_fast/final_model.joblib --true_csv True.csv --fake_csv Fake.csv --output_dir models/research_fast/eval
+
+# 3) Predict one custom text
+py -3.11 src/predict.py --model_path models/research_fast/final_model.joblib --text "Paste your article text here"
+
+# 4) Full run later (heavy)
+py -3.11 src/train.py --true_csv True.csv --fake_csv Fake.csv --output_dir models/research --split_method source --run_bert --bert_use_gpu --run_cross_domain --run_ablation

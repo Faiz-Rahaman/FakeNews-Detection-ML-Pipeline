@@ -1,0 +1,119 @@
+Command : py -3.11 src/train.py --true_csv True.csv --fake_csv Fake.csv --output_dir models/research_fast --split_method time --run_bert --bert_use_gpu --bert_epochs 1 --bert_max_length 128 --sample_size 12000 --word_max_features 80000 --char_max_features 60000
+
+2026-03-01 10:21:02,206 | INFO | __main__ | Using sampled dataset size: 12000
+2026-03-01 10:21:02,238 | INFO | preprocessing | Split=time | train=8400 val=1200 test=2400
+2026-03-01 10:22:20,458 | INFO | feature_engineering | Hybrid feature matrix shape=(8400, 140019)
+2026-03-01 10:22:47,176 | INFO | __main__ | Training LinearSVC
+2026-03-01 10:27:51,807 | INFO | __main__ | Training DistilBERT
+2026-03-01 10:27:58,484 | INFO | datasets | PyTorch version 2.5.1+cu121 available.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8400/8400 [00:03<00:00, 2262.54 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 1611.58 examples/s]
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2026-03-01 10:28:10,645 | INFO | __main__ | DistilBERT device=cuda
+C:\Users\Faiz\Downloads\Project_Anti\src\train.py:133: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+{'loss': 0.3782, 'grad_norm': 0.7125287652015686, 'learning_rate': 1.9066666666666668e-05, 'epoch': 0.05}
+{'loss': 0.1854, 'grad_norm': 0.16447466611862183, 'learning_rate': 1.8133333333333335e-05, 'epoch': 0.1}                                                                                           
+{'loss': 0.1428, 'grad_norm': 0.09999903291463852, 'learning_rate': 1.72e-05, 'epoch': 0.14}                                                                                                        
+{'loss': 0.137, 'grad_norm': 0.18736591935157776, 'learning_rate': 1.624761904761905e-05, 'epoch': 0.19}                                                                                            
+{'loss': 0.1332, 'grad_norm': 22.514583587646484, 'learning_rate': 1.5295238095238097e-05, 'epoch': 0.24}                                                                                           
+{'loss': 0.0864, 'grad_norm': 0.04995490238070488, 'learning_rate': 1.4342857142857145e-05, 'epoch': 0.29}                                                                                          
+{'loss': 0.0527, 'grad_norm': 0.5927823185920715, 'learning_rate': 1.3390476190476191e-05, 'epoch': 0.33}                                                                                           
+{'loss': 0.0622, 'grad_norm': 0.21226093173027039, 'learning_rate': 1.243809523809524e-05, 'epoch': 0.38}                                                                                           
+{'loss': 0.0678, 'grad_norm': 0.02787560224533081, 'learning_rate': 1.1485714285714287e-05, 'epoch': 0.43}                                                                                          
+{'loss': 0.0312, 'grad_norm': 0.02219756506383419, 'learning_rate': 1.0552380952380953e-05, 'epoch': 0.48}                                                                                          
+{'loss': 0.04, 'grad_norm': 0.025658832862973213, 'learning_rate': 9.600000000000001e-06, 'epoch': 0.52}                                                                                            
+{'loss': 0.0651, 'grad_norm': 0.12698835134506226, 'learning_rate': 8.647619047619047e-06, 'epoch': 0.57}                                                                                           
+{'loss': 0.0987, 'grad_norm': 0.04397454485297203, 'learning_rate': 7.695238095238095e-06, 'epoch': 0.62}                                                                                           
+{'loss': 0.0512, 'grad_norm': 0.03225880488753319, 'learning_rate': 6.742857142857143e-06, 'epoch': 0.67}                                                                                           
+{'loss': 0.0236, 'grad_norm': 0.022535119205713272, 'learning_rate': 5.790476190476191e-06, 'epoch': 0.71}                                                                                          
+{'loss': 0.0256, 'grad_norm': 0.018373658880591393, 'learning_rate': 4.838095238095238e-06, 'epoch': 0.76}                                                                                          
+{'loss': 0.0622, 'grad_norm': 0.016948185861110687, 'learning_rate': 3.885714285714286e-06, 'epoch': 0.81}                                                                                          
+{'loss': 0.0408, 'grad_norm': 0.01709141582250595, 'learning_rate': 2.9333333333333338e-06, 'epoch': 0.86}                                                                                          
+{'loss': 0.0195, 'grad_norm': 0.03071410395205021, 'learning_rate': 1.980952380952381e-06, 'epoch': 0.9}                                                                                            
+{'loss': 0.0279, 'grad_norm': 0.018192928284406662, 'learning_rate': 1.0285714285714286e-06, 'epoch': 0.95}                                                                                         
+{'loss': 0.0284, 'grad_norm': 0.016311926767230034, 'learning_rate': 7.619047619047619e-08, 'epoch': 1.0}                                                                                           
+{'eval_loss': 0.06424356251955032, 'eval_accuracy': 0.9875, 'eval_precision': 1.0, 'eval_recall': 0.9875, 'eval_f1': 0.9937106918238994, 'eval_roc_auc': 0.5, 'eval_runtime': 1.5668, 'eval_samples_per_second': 765.885, 'eval_steps_per_second': 95.736, 'epoch': 1.0}
+{'train_runtime': 68.625, 'train_samples_per_second': 122.404, 'train_steps_per_second': 15.301, 'train_loss': 0.08379172415960402, 'epoch': 1.0}                                                   
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1050/1050 [01:08<00:00, 15.30it/s]
+Parameter 'function'=<function distilbert_predict_proba.<locals>.tokenize at 0x0000029507289DA0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+2026-03-01 10:29:22,132 | WARNING | datasets.fingerprint | Parameter 'function'=<function distilbert_predict_proba.<locals>.tokenize at 0x0000029507289DA0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 6347.32 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 5501.26 examples/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 115.63it/s]
+Map:   0%|                                                                                                                                                         | 0/2400 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  42%|██████████████████████████████████████████████████████████▎                                                                                 | 1000/2400 [00:00<00:00, 6072.61 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 2000/2400 [00:00<00:00, 5544.38 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2400/2400 [00:00<00:00, 5221.68 examples/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 300/300 [00:02<00:00, 123.75it/s]
+C:\Users\Faiz\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\metrics\_classification.py:2480: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+C:\Users\Faiz\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\metrics\_classification.py:2480: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+C:\Users\Faiz\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\metrics\_classification.py:2480: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+C:\Users\Faiz\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\metrics\_classification.py:2480: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+C:\Users\Faiz\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\metrics\_classification.py:2480: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+C:\Users\Faiz\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\metrics\_classification.py:2480: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 3660.27 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 2591.28 examples/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:02<00:00, 73.52it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 3366.59 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 2626.56 examples/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 97.73it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 3796.51 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 3144.47 examples/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 103.36it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 23522.21 examples/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 120.08it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 3487.59 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 2723.19 examples/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 86.38it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 3156.76 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 2409.99 examples/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 79.48it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                       | 1000/1200 [00:00<00:00, 5652.64 examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 4364.92 examples/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 111.84it/s]
+Map:   0%|                                                                                                                                                         | 0/1200 [00:00<?, ? examples/s]Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [00:00<00:00, 29323.62 examples/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:01<00:00, 121.73it/s]
+2026-03-01 10:30:41,482 | INFO | __main__ | Best model by validation F1: linear_svc
+2026-03-01 10:30:41,482 | INFO | __main__ | Saved artifact: models\research_fast\final_model.joblib
+
+
+
+Command : py -3.11 src/evaluate.py --artifact_path models/research_fast/final_model.joblib --true_csv True.csv --fake_csv Fake.csv --output_dir models/research_fast/eval
+{
+  "linear_svc": {
+    "f1": 0.9965199940220756,
+    "roc_auc": 0.9994960441821752
+  },
+  "xgboost": {
+    "f1": 0.6887463864880332,
+    "roc_auc": 0.5
+  },
+  "distilbert": {
+    "f1": 0.9946107784431137,
+    "roc_auc": 0.999723056230082
+  },
+  "ensemble": {
+    "f1": 0.9963258854188918,
+    "roc_auc": 0.9999433926347684
+  }
+}
+Saved evaluation report to: models\research_fast\eval\evaluation_report.json
